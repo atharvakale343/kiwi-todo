@@ -13,7 +13,7 @@ use rocket::request::FlashMessage;
 use rocket::response::{Flash, Redirect};
 use rocket::serde::Serialize;
 use rocket::form::Form;
-use rocket::fs::{FileServer, relative};
+use rocket::fs::{FileServer};
 
 use rocket_dyn_templates::Template;
 
@@ -110,7 +110,7 @@ fn rocket() -> _ {
         .attach(DbConn::fairing())
         .attach(Template::fairing())
         .attach(AdHoc::on_ignite("Run Migrations", run_migrations))
-        .mount("/", FileServer::from(relative!("static/")))
+        .mount("/", FileServer::from("static"))
         .mount("/", routes![index])
         .mount("/todo", routes![new, toggle, delete])
 }
