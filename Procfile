@@ -1,2 +1,2 @@
-web: ROCKET_PORT=$PORT ROCKET_KEEP_ALIVE=0 ./target/release/kiwi-app
+web: ROCKET_PORT=$PORT ROCKET_KEEP_ALIVE=0 ./target/release/todo
 
