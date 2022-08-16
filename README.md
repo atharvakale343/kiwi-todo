@@ -1,3 +1,4 @@
+[![Build](https://github.com/atharvakale343/kiwi-todo/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/atharvakale343/kiwi-todo/actions/workflows/ci.yml)
 # Todo App built with Rocket
 
 This repository is a fork of a basic Todo app from [Rocket Examples](https://github.com/SergioBenitez/Rocket/tree/master/examples/todo)
