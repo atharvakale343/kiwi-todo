@@ -7,6 +7,8 @@
 mod tests;
 mod task;
 
+use std::env;
+
 use rocket::{Rocket, Build};
 use rocket::fairing::AdHoc;
 use rocket::request::FlashMessage;
@@ -19,8 +21,8 @@ use rocket_dyn_templates::Template;
 
 use crate::task::{Task, Todo};
 
-#[database("sqlite_database")]
-pub struct DbConn(diesel::SqliteConnection);
+#[database("postgres_database")]
+pub struct DbConn(diesel::PgConnection);
 
 #[derive(Debug, Serialize)]
 #[serde(crate = "rocket::serde")]
@@ -106,6 +108,13 @@ async fn run_migrations(rocket: Rocket<Build>) -> Rocket<Build> {
 
 #[launch]
 fn rocket() -> _ {
+    if cfg!(debug_assertions) {
+        println!("Debugging enabled");
+        use dotenv;
+        dotenv::dotenv().ok();
+        println!("DATABASE_URL: {}", env::var("DATABASE_URL").expect("DATABASE_URL is not set"));
+        println!("ROCKET_DATABASES: {}", env::var("ROCKET_DATABASES").expect("ROCKET_DATABASES is not set"));
+    }
     rocket::build()
         .attach(DbConn::fairing())
         .attach(Template::fairing())
