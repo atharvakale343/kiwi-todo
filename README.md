@@ -10,7 +10,7 @@ This repository is a fork of a basic Todo app from [Rocket Examples](https://git
 # Develop Locally
 
 In Bash on macOS:
-```bash
+```console
 brew install postgresql
 
 mkdir db
@@ -27,7 +27,7 @@ cargo run
 ```
 
 If `cargo run` cannot link with `-lpq`, then:
-```bash
+```console
 brew install libpq && brew link --force libpq
 
 cargo run
