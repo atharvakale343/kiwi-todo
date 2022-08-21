@@ -5,6 +5,8 @@ This repository is a fork of a basic Todo app from [Rocket Examples](https://git
 
 [View the App Website](http://kiwi-todo.herokuapp.com/)
 
+![Website](images/website.png)
+
 # Develop Locally
 
 In Bash on macOS:
